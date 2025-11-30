@@ -17,7 +17,7 @@ export default function Home(){
              width: "100%",
              height: "100vh",
             backgroundRepeat: "no-repeat",
-            py:7,
+            py:6,
       
              }}>
        <Container maxWidth={false} >

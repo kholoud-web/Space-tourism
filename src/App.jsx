@@ -4,8 +4,7 @@ import Destination from './components/Destination.jsx'
 
 import {BrowserRouter, Router, Route, Routes} from 'react-router-dom'
 import NavBar from './components/NavBar.jsx'
-import { Box } from '@mui/material'
-
+import Crew from './components/Crew.jsx'
 
 
 
@@ -28,7 +27,7 @@ function App() {
        <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/destination' element={<Destination/>}/>
-        
+        <Route path='/crew' element = {<Crew/>}/>
 
        </Routes>
       

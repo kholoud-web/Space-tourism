@@ -37,7 +37,7 @@ export default function NavBar() {
 
 
 return (
-  <AppBar position="absolute" sx={{ backgroundColor: "#2b2c49ff", opacity: 0.7,zIndex:1000 }}>
+  <AppBar position="fixed" sx={{background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 80%, transparent)', opacity: 0.7,zIndex:1000,height:"82px" }}>
     <Container
       maxWidth={false}
       sx={{
