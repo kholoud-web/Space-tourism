@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import{useState , useEffect} from 'react';
-import data from '/public/data';
 
 
 
