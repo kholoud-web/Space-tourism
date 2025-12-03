@@ -6,8 +6,31 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import{useState , useEffect} from 'react';
+import { motion } from "framer-motion";
 
-
+// animation
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0.98,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.98,
+    transition: {
+      duration: 0.4,
+      ease: "easeIn",
+    },
+  },
+};
 
 
 
@@ -61,6 +84,13 @@ export default function Destination(){
     }
 
     return(
+       <motion.div
+       variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      style={{ height: "100%", width: "100%" }}
+    >
         <Box sx={{backgroundImage: `url(${img})`,
                      backgroundSize: "cover",
                      backgroundPosition: "center", 
@@ -76,7 +106,8 @@ export default function Destination(){
                  <Typography variant="h4"
                 sx={{color:"white", opacity:0.8, 
                   fontFamily:"Bellefair",
-                whiteSpace:{ xs: "normal", lg: "nowrap" }
+                whiteSpace:{ xs: "normal", lg: "nowrap" },
+                 fontSize: { xs: "2rem", md: "2.5rem" },
                 }}>
                     01  PICK YOUR DESTINATION
                 </Typography>
@@ -163,5 +194,6 @@ export default function Destination(){
             </Box>
          </Container>  
         </Box>
+    </motion.div>
     )
 }

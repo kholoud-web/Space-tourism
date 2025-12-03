@@ -4,7 +4,31 @@ import Container from '@mui/material/Container';
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useEffect,useState } from 'react';
+import { motion } from "framer-motion";
 
+// animation
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0.98,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.98,
+    transition: {
+      duration: 0.4,
+      ease: "easeIn",
+    },
+  },
+};
 
 
 
@@ -49,6 +73,13 @@ export default function Crew(){
   }
 
     return(
+       <motion.div
+       variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      style={{ height: "100%", width: "100%" }}
+    >
         <Box sx={{backgroundImage:`url(${backImage})`,
                  backgroundSize: "cover",
                  backgroundPosition: "center",
@@ -56,15 +87,16 @@ export default function Crew(){
                 py:{xs:5,md:8},
                 px:{xs:2, md:6}
                  }}>
-          <Container maxWidth={false} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <Container maxWidth={false} sx={{ display: "flex", flexDirection: "column" }}>
             {/* heading */}
            <Box >
             <Typography variant='h4' sx={{color:"white", opacity:0.7, 
                   fontFamily:"Bellefair ,serif", 
-                  mb:{xs:5},
+                  mb:{xs:7},
                   letterSpacing: 3,
-                  fontSize: { xs: "1.2rem", md: "2rem" },
-                  mt: { xs: 6, md: 10 },
+                  fontSize: { xs: "2.5rem", md: "3rem" },
+                  mt: { xs: 8, md: 10 },
+                  textAlign:{xs:"center",md:"left"}
                   }}>  
               02 Meet your crew
             </Typography>
@@ -126,5 +158,6 @@ export default function Crew(){
           </Box>            
         </Container>        
         </Box>
+    </motion.div>
     )
 }

@@ -10,6 +10,7 @@
   font-family:"Bellefair";
   src: url(../public/webFonts/Bellefair-Regular.ttf);
   font-weight: normal;
+  
 }
 
 body{
@@ -31,4 +32,12 @@ body{
   align-items: center;
   height: 100%;
   padding: 0 1rem;
+}
+
+.MuiMenu-paper .active-link,
+.MuiPaper-root .active-link,
+.MuiMenu-list .active-link {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }

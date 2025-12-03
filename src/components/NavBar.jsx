@@ -35,9 +35,10 @@ export default function NavBar() {
     setAnchorElNav(null);
   };
 
-
+// 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 80%, transparent)'
 return (
-  <AppBar position="fixed" sx={{background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 80%, transparent)', opacity: 0.7,zIndex:1000,height:"82px" }}>
+  <AppBar position="fixed"
+  sx={{background: "transparent", opacity: 0.9,zIndex:1000,height:"82px" }}>
     <Container
       maxWidth={false}
       sx={{
@@ -99,12 +100,43 @@ return (
           sx={{ display: { xs: "block", md: "none" } }}
           anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
           transformOrigin={{ vertical: "top", horizontal: "left" }}
+           PaperProps={{
+              elevation: 0,
+              sx: {
+                background: 'rgba(5,10,20,0.75)',
+                color: 'white',
+                backdropFilter: 'blur(6px)',
+                borderRadius: 2,
+                mt: 1,
+                minWidth: 200,
+                px: 1,
+              },
+            }}
         >
           {pages.map((page) => (
-            <MenuItem key={page.path} onClick={handleCloseNavMenu}>
+            <MenuItem key={page.path} onClick={handleCloseNavMenu}   sx={{ p: 0, my: 0.5, background: 'transparent' }}>
               <NavLink to={page.path}  className={({ isActive }) => (isActive ? "active-link" : "nav-link")}
-              style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Typography>{page.label}</Typography>
+              style={{ textDecoration: 'none', width: '100%', display: 'block'}}>
+               {({ isActive }) => (
+                    <Typography
+                      sx={{
+                        width: '100%',
+                        textAlign: 'center',
+                        py: 1,
+                        px: 2,
+                        my:1,
+                        borderRadius: 1.5,
+                        color: isActive ? '#0b0d17' : 'white',
+                        backgroundColor: isActive ? '#ffffff' : 'transparent',
+                        fontWeight: isActive ? 700 : 500,
+                        transition: 'all 150ms ease',
+                        textTransform: 'none',
+                        border:"none",
+                      }}
+                    >
+                      {page.label}
+                    </Typography>
+                  )}
               </NavLink>
             </MenuItem>
           ))}
@@ -126,9 +158,18 @@ return (
           {pages.map((page) => (
             <NavLink key={page.path} to={page.path}  className={({ isActive }) => (isActive ? "active-link" : "nav-link")}
              style={{ textDecoration: 'none' }}>
-            <Button sx={{ color: "papayawhip", display: "block" }}>
-              {page.label}
-            </Button>
+              <Button sx={{ 
+                color: "papayawhip", 
+                display: "block",
+                position: "relative",
+                transition: "all 0.3s ease",
+                pb: 0.5,
+                '&:hover': {
+                  color: 'white',
+                }
+              }}>
+                {page.label}
+              </Button>
             </NavLink>
           ))}
         </Box>

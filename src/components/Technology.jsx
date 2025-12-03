@@ -2,8 +2,34 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import { useState, useEffect } from 'react';
+import { motion } from "framer-motion";
+
+
+// animation
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0.98,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.98,
+    transition: {
+      duration: 0.4,
+      ease: "easeIn",
+    },
+  },
+};
+
 
 const image = "/assets/technology/background-technology-desktop.jpg";
 
@@ -45,6 +71,14 @@ export default function Technology(){
   }
 
     return(
+      <motion.div
+        variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      style={{ height: "100%", width: "100%" }}
+      
+      >
         <Box sx={{backgroundImage:`url(${image})`,
                  backgroundSize: "cover",
                  backgroundPosition: "center",
@@ -60,8 +94,9 @@ export default function Technology(){
                       fontFamily:"Bellefair ,serif", 
                        mb: { xs: 4, md: 6 },
                       letterSpacing: 3,
-                      fontSize: { xs: "1.2rem", md: "2rem" },
-                      mt: { xs: 6, md: 10 },
+                      fontSize: { xs: "2.5rem", md: "3rem" },
+                      mt: { xs: 8, md: 10 },
+                      textAlign:{xs:"center",md:"left"},
                       }}>  
                     03 Space launch 101
                   </Typography>
@@ -80,8 +115,8 @@ export default function Technology(){
               width: { xs: "100%", md: "50%" },
               order: { xs: 2, md: 1 },}}>
                     <Box sx={{display: "flex",
-                flexDirection: { xs: "row", md: "column" },
-                gap: { xs: 1, md: 3 },
+                flexDirection: { xs: "column", md: "column" },
+                gap: { xs: 3, md: 3 },
                 justifyContent: { xs: "center", md: "flex-start" },m:6}}>
                        {tech.map((_, i) => (
                             <Button
@@ -154,5 +189,6 @@ export default function Technology(){
                  </Box>
             </Container>
         </Box>
+      </motion.div>  
     )
 }
