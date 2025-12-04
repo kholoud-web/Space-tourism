@@ -7,6 +7,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import{useState , useEffect} from 'react';
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+
 
 // animation
 const pageVariants = {
@@ -84,6 +86,22 @@ export default function Destination(){
     }
 
     return(
+    <>
+      <Helmet>
+  <title>Space Tourism | Choose Your Destination</title>
+  <meta name="description" content="Discover breathtaking destinations like the Moon, Mars, Europa, and Titan. Learn distances, travel time, and more." />
+  <link rel="canonical" href="https://tourismspac.netlify.app/destination" />
+
+  <meta name="keywords" content="moon travel, mars travel, europa travel, titan travel, space destinations" />
+
+  <meta property="og:title" content="Choose Your Space Destination" />
+  <meta property="og:description" content="Discover the most iconic destinations in space with detailed travel info." />
+  <meta property="og:url" content="https://tourismspac.netlify.app/destination" />
+  <meta property="og:image" content="/share/destination.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
        <motion.div
        variants={pageVariants}
       initial="initial"
@@ -128,7 +146,7 @@ export default function Destination(){
                 alignItems: { xs: "center", md: "flexStart" },
 
              }} >          
-                <img src={current.images.webp} alt="current.name" 
+                <img src={current.images.webp} alt="current.name" loading='lazy'
                  style={{maxWidth:"400px" , objectFit:"contain",width:"100%"}}
                 />
             </Box>
@@ -195,5 +213,6 @@ export default function Destination(){
          </Container>  
         </Box>
     </motion.div>
+    </>
     )
 }

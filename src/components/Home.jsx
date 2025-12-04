@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -38,6 +39,15 @@ export default function Home(){
 
 
     return(
+    <>
+    
+<Helmet>
+  <title>Space Tourism | Explore The Universe</title>
+  <meta name="description" content="Experience the next generation of space travel. Explore destinations, choose your crew, and discover cutting-edge technology." />
+  <meta name="description" content="Experience the next generation of space travel and explore planets, crew members, and advanced spacecraft technology." />
+  <link rel="canonical" href="https://tourismspac.netlify.app.com/" />
+</Helmet>
+
       <motion.div
          variants={pageVariants}
       initial="initial"
@@ -105,5 +115,6 @@ export default function Home(){
         </Container>
      </Box>
      </motion.div>
+    </>  
     )
 }

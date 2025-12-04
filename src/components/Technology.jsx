@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
-
+import { Helmet } from "react-helmet-async";
 
 // animation
 const pageVariants = {
@@ -71,6 +71,19 @@ export default function Technology(){
   }
 
     return(
+      <>
+      <Helmet>
+  <title>Space Tourism | Space Technology</title>
+  <meta name="description" content="Explore advanced launch vehicles, space capsules, and cutting-edge technology behind interplanetary travel." />
+  <link rel="canonical" href="https://tourismspac.netlify.app/technology" />
+
+  <meta name="keywords" content="space capsule, launch vehicle, space technology, spacecraft" />
+
+  <meta property="og:title" content="Space Travel Technology" />
+  <meta property="og:description" content="Discover the engineering behind modern space exploration." />
+  <meta property="og:image" content="/share/technology.jpg" />
+    </Helmet>
+
       <motion.div
         variants={pageVariants}
       initial="initial"
@@ -184,11 +197,13 @@ export default function Technology(){
                 objectFit: "contain",
                 display: "block",
               }}
+              loading='lazy'
                      src={current.images?.portrait || current.images?.landscape ||"/assets/technology/image-placeholder.png"} alt={current.name} />
                    </Box>
                  </Box>
             </Container>
         </Box>
-      </motion.div>  
+      </motion.div> 
+      </> 
     )
 }

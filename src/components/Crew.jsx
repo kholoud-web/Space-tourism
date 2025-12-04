@@ -5,6 +5,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useEffect,useState } from 'react';
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+
 
 // animation
 const pageVariants = {
@@ -30,12 +32,7 @@ const pageVariants = {
   },
 };
 
-
-
 const backImage = "/assets/crew/background-crew-desktop.jpg";
-
-
-
 
 
 export default function Crew(){
@@ -73,7 +70,20 @@ export default function Crew(){
   }
 
     return(
-       <motion.div
+    <>
+    <Helmet>
+  <title>Space Tourism | Meet The Crew</title>
+  <meta name="description" content="Meet our professional space crew with years of experience in missions beyond Earth." />
+  <link rel="canonical" href="https://tourismspac.netlify.app/crew" />
+
+  <meta name="keywords" content="space crew, astronauts, pilot, mission specialist" />
+
+  <meta property="og:title" content="Meet The Space Crew" />
+  <meta property="og:description" content="Learn about the experienced astronauts leading your mission." />
+  <meta property="og:image" content="/share/crew.jpg" />
+    </Helmet>
+
+      <motion.div
        variants={pageVariants}
       initial="initial"
       animate="animate"
@@ -151,7 +161,7 @@ export default function Crew(){
              </Box>
              {/* right box */}
              <Box sx={{ width: { xs: "100%", md: "45%" }, display: "flex", justifyContent: "center", alignItems: "center" }}>
-               <img src= {current.images.webp} alt={current.name}
+               <img src= {current.images.webp} alt={current.name} loading='lazy'
                 style={{maxWidth:"100%",width:"400px",height:"auto",objectFit:"contain"}}
                />
              </Box>
@@ -159,5 +169,6 @@ export default function Crew(){
         </Container>        
         </Box>
     </motion.div>
+    </>
     )
 }
