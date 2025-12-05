@@ -130,7 +130,7 @@ export default function Technology(){
                     <Box sx={{display: "flex",
                 flexDirection: { xs: "column", md: "column" },
                 gap: { xs: 3, md: 3 },
-                justifyContent: { xs: "center", md: "flex-start" },m:6}}>
+                justifyContent: { xs: "center", md: "flex-start" },margin:{xs:2 , md:6}}}>
                        {tech.map((_, i) => (
                             <Button
                              key={i}

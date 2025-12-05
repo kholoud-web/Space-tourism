@@ -120,12 +120,13 @@ export default function Destination(){
                     }}>
           <Container maxWidth={false} sx={{height:"100%",width:"100%",}}>
             {/* title */}
-            <Box sx={{mt:"100px", ml:"30px"}}>
+            <Box sx={{mt:"100px", ml:{xs:"",md:"50px"},mb:3}}>
                  <Typography variant="h4"
                 sx={{color:"white", opacity:0.8, 
                   fontFamily:"Bellefair",
                 whiteSpace:{ xs: "normal", lg: "nowrap" },
                  fontSize: { xs: "2rem", md: "2.5rem" },
+                 textAlign:{xs:"center",md:"left"}
                 }}>
                     01  PICK YOUR DESTINATION
                 </Typography>
@@ -135,7 +136,8 @@ export default function Destination(){
                justifyContent:"space-between",
                flexDirection:{xs:"column", md:"row"},
                 width:"100%",
-                 gap: { xs: 5, md: 0 }
+                 gap: { xs: 5, md: 1 },
+                 
                }}>
                 {/*  image */}
              <Box  
@@ -153,19 +155,23 @@ export default function Destination(){
               {/* text and tabs */}
               <Box sx={{display:"flex",flexDirection:"column",justifyContent:"flex-start",
                 alignItems:{ xs: "center",lg:"center"},
-                maxWidth:{md: "50%" },mt:{xs:8, md:0}}}>
+                maxWidth:{md: "50%" },mt:{xs:8, md:0},
+                }}>
             <Box sx={{borderBottom:"1px solid #ccc",paddingBottom:{ xs: 3, md: 6 }}} >
                 {/* planets */}
-             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+             <Box sx={{ borderBottom: 1, borderColor: 'divider', }}>
 
                         <Tabs  value={value} onChange={handleChange} aria-label="basic tabs example"
                           sx={{
                         '& .MuiTab-root': {
                           color: "white",
                           opacity:"0.7",
-                          fontSize: { xs: "0.8rem", md: "1.2rem" },
+                          fontSize: { xs: "1rem", md: "1.5rem" },
                           py:  {xs: 1, md: 2 },
-                          px: { xs: 1, md: 2 }
+                          px: { xs: 1, md: 2 },
+                          textAlign:{xs:"center"},
+                          fontWeight:"bold"
+                         
                         }
                       }}
 >
